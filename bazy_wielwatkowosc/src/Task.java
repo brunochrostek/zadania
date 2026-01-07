@@ -1,4 +1,3 @@
-// 1. Klasa Modelu
 class Task {
     int id;
     String title;
@@ -11,4 +10,5 @@ class Task {
         this.description = description;
         this.isDone = isDone;
     }
+
 }
