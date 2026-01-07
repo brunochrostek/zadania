@@ -12,10 +12,9 @@ public class TaskManagerApp extends JFrame {
     private JLabel lblStatus;
     private JProgressBar progressBar;
 
-    // Dane połączenia - DOPASUJ DO SWOJEJ BAZY
     private final String DB_URL = "jdbc:mysql://localhost:3306/watkowoscbaza";
     private final String DB_USER = "root";
-    private final String DB_PASS = ""; // Twoje hasło
+    private final String DB_PASS = "";
 
     public TaskManagerApp() {
         setTitle("Menedżer Zadań");
@@ -23,7 +22,6 @@ public class TaskManagerApp extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // GUI Setup
         tableModel = new DefaultTableModel(new Object[]{"ID", "Tytuł", "Opis", "Gotowe"}, 0);
         table = new JTable(tableModel);
         add(new JScrollPane(table), BorderLayout.CENTER);
@@ -44,7 +42,6 @@ public class TaskManagerApp extends JFrame {
         add(pnlBottom, BorderLayout.SOUTH);
         add(progressBar, BorderLayout.NORTH);
 
-        // Obsługa zdarzeń
         btnLoad.addActionListener(e -> loadTasks());
         btnAdd.addActionListener(e -> addTask());
     }
@@ -64,14 +61,12 @@ public class TaskManagerApp extends JFrame {
         }
     }
 
-    // --- ASYNCHRONICZNE WCZYTYWANIE ---
     class LoadTasksWorker extends SwingWorker<List<Task>, Void> {
         @Override
         protected List<Task> doInBackground() throws Exception {
-            Thread.sleep(4000); // Sztuczne opóźnienie
+            Thread.sleep(4000); 
             List<Task> tasks = new ArrayList<>();
 
-            // Rejestracja sterownika (dla pewności w starszych projektach)
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
@@ -109,7 +104,6 @@ public class TaskManagerApp extends JFrame {
         }
     }
 
-    // --- ASYNCHRONICZNE DODAWANIE ---
     class AddTaskWorker extends SwingWorker<Boolean, Void> {
         private String title;
 
