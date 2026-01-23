@@ -1,0 +1,42 @@
+CREATE TABLE magazyn (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nazwa_produktu VARCHAR(100),
+    ilosc INT,
+    cena DECIMAL(10,2)
+);
+
+INSERT INTO magazyn (nazwa_produktu, ilosc, cena) VALUES
+('Laptop X200', 5, 850.00),
+('Monitor UltraWide', 10, 1200.00),
+('Klawiatura Mechaniczna', 20, 350.00);
+
+DELIMITER $$
+
+CREATE PROCEDURE AktualizujCene(
+    IN p_id INT,
+    IN p_procent DECIMAL(5,2)
+)
+BEGIN
+    DECLARE stara_cena DECIMAL(10,2);
+    DECLARE nowa_cena DECIMAL(10,2);
+
+    SELECT cena INTO stara_cena
+    FROM magazyn
+    WHERE id = p_id;
+
+    SET nowa_cena = stara_cena * (1 + p_procent);
+
+    UPDATE magazyn
+    SET cena = nowa_cena
+    WHERE id = p_id;
+
+    IF nowa_cena > 1000 THEN
+        SELECT 'Cena Premium' AS komunikat;
+    ELSE
+        SELECT 'Cena Standardowa' AS komunikat;
+    END IF;
+END $$
+
+DELIMITER ;
+
+CALL AktualizujCene(1, 0.10);
