@@ -1,0 +1,11 @@
+DELIMITER $$
+
+CREATE PROCEDURE UsunProdukt(
+    IN id_do_usuniecia INT
+)
+BEGIN
+    DELETE FROM produkty
+    WHERE id_produktu = id_do_usuniecia;
+END $$
+
+DELIMITER ;
