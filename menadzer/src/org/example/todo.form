@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.example.todo">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="811ea" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="3e017" class="javax.swing.JTextField" binding="zadanie">
+            <constraints border-constraint="North"/>
+            <properties/>
+          </component>
+          <vspacer id="f564f">
+            <constraints border-constraint="Center"/>
+          </vspacer>
+          <component id="ca516" class="javax.swing.JButton" binding="dodaj">
+            <constraints border-constraint="South"/>
+            <properties>
+              <text value="dodaj"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="104f9" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d68c3" class="javax.swing.JLabel" binding="ilosc">
+            <constraints border-constraint="South"/>
+            <properties>
+              <text value="ilosc"/>
+            </properties>
+          </component>
+          <component id="9ff3" class="javax.swing.JButton" binding="usun">
+            <constraints border-constraint="North"/>
+            <properties>
+              <text value="usun"/>
+            </properties>
+          </component>
+          <vspacer id="c5be4">
+            <constraints border-constraint="Center"/>
+          </vspacer>
+        </children>
+      </grid>
+      <grid id="79ed4" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a520e" class="javax.swing.JList" binding="lista">
+            <constraints border-constraint="Center"/>
+            <properties/>
+          </component>
+          <vspacer id="87d2c">
+            <constraints border-constraint="North"/>
+          </vspacer>
+          <vspacer id="8789b">
+            <constraints border-constraint="South"/>
+          </vspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
